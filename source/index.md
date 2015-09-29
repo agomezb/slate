@@ -54,9 +54,9 @@ Kittn expects for the API key to be included in all API requests to the server i
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-# Kittens
+# Facturas
 
-## Get All Kittens
+## Agregar Nuevo Documento
 
 ```ruby
 require 'kittn'
@@ -77,43 +77,52 @@ curl "http://example.com/api/kittens"
   -H "Authorization: meowmeowmeow"
 ```
 
-> The above command returns JSON structured like this:
+> Esta petición devuelve un JSON como:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+    "result": true
+}
 ```
 
-This endpoint retrieves all kittens.
+Este servicio permite agregar un nuevo documento a Contifico.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST https://contifico.com/api/documento`
 
 ### Query Parameters
 
-Parameter | Default | Description
+Parámetro | Default | Descripción
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
+id | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember a happy kitten is an authenticated kitten!
 </aside>
+
+
+### Caja
+
+Parámetro | Tipo | Longitud | Descripción |
+--------- | ---- | -------- | ----------- |
+id | string | 10 | Identificador de la caja en punto de venta
+fecha_apertura | string | 11 | Fecha de Apertura de la caja
+fecha_cierre | string | 11 | Fecha de Cierre de la caja
+monto_inicial | decimal | 13,5 | Monto de Apertura
+total_cierre | decimal | 13,5 | Total Cobrado al cierre
+efectivo | decimal | 13,5 | Valor cobrado en Efectivo
+cheque | decimal | 13,5 | Valor cobrado en Cheque
+tarjeta | decimal | 13,5 | Valor cobrado en Tarjeta
+total_facturado | decimal | 13,5 | Total Facturado
+total_cobrado | decimal | 13,5 | Total Cobrado
+saldo_final | decimal | 13,5 | Saldo por cobrar
+
+<aside class="warning">
+La caja no es obligatoria para sincronizar documentos pero si necesaria para reportería
+</aside>
+
 
 ## Get a Specific Kitten
 
