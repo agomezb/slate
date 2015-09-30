@@ -119,7 +119,9 @@ documento | Objeto Documento  | - | Datos del Documento
     "tipo": "N",
     "email": "info@contifico.com",
     "es_vendedor": true,
-    "es_extranjero": false
+    "es_extranjero": false,
+    "tipo_contrato" : "A",
+    "sueldo" : 400
 },
 {
     "ruc": "0904728680001",
@@ -130,7 +132,9 @@ documento | Objeto Documento  | - | Datos del Documento
     "tipo": "N",
     "email": "cliente@contifico.com",
     "es_vendedor": false,
-    "es_extranjero": false
+    "es_extranjero": false,
+    "tipo_contrato" : "",
+    "sueldo" : ""
 }]
 
 ```
@@ -144,8 +148,10 @@ telefonos | varchar | 100 | Teléfonos de la persona
 direccion | varchar | 300 | Dirección de la persona
 tipo | char | 1 | Tipo de Persona N: Natural, J: Jurídica
 email | varchar | 75 | Email de la persona
-es_vendedor | boolean | - | Identifica si una persona es vendedor
 es_extranjero | boolean | - | Identifica si una persona es extranjera
+es_vendedor | boolean | - | Identifica si una persona es vendedor
+tipo_contrato | char | 1 | Tipo de contrato del empleado. A: Afiliado, S: Serivicios Prestados
+sueldo | decimal | 10,2 | Sueldo del empleado
 
 <aside class="notice">
 Sólo es necesario enviar una sóla vez los datos de cada persona a contífico, en proximos envios bastará con especificar el RUC o Cédula en los datos del documento.
@@ -184,7 +190,7 @@ Sólo es necesario enviar una sóla vez los datos de cada persona a contífico, 
 
 Parámetro | Tipo | Longitud | Descripción |
 --------- | ---- | -------- | ----------- |
-id | varchar | 11 | Identificador del documento
+id | varchar | 11 | Identificador del documento en punto de venta
 fecha_emision | char | 10 | Fecha de emisión de la factura
 tipo_documento | char | 3 | Tipo de Documento. FAC: Factura, NVE: Nota de Venta
 documento | char | 17 | Número de documento. Ej: 001-001-000000123
@@ -280,7 +286,9 @@ tipo_ping | char | 1 | Tipo de red usada: D: Datafast, M: Medianet, R: Red de Ap
         "tipo": "N",
         "email": "info@contifico.com",
         "es_vendedor": true,
-        "es_extranjero": false
+        "es_extranjero": false,
+        "tipo_contrato" : "A",
+        "sueldo" : 400
     },
     {
         "ruc": "0904728680001",
@@ -291,7 +299,9 @@ tipo_ping | char | 1 | Tipo de red usada: D: Datafast, M: Medianet, R: Red de Ap
         "tipo": "N",
         "email": "cliente@contifico.com",
         "es_vendedor": false,
-        "es_extranjero": false
+        "es_extranjero": false,
+        "tipo_contrato" : "",
+        "sueldo" : ""
     }],
     "documento": {
         "id" : "80",
