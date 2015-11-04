@@ -141,73 +141,70 @@ La caja no es obligatoria para sincronizar documentos pero facilita el filtrado 
 > A continuacion la respuesta al consultar un documento
 
 ```json
-[
-    {
-        "iva": "1200.0",
-        "fecha_vencimiento": "10/06/2013",
-        "vendedor": null,
-        "pos": "",
-        "subtotal_0": "0.0",
-        "descripcion": "prueba",
-        "total": "11200.0",
-        "id": "usdjcbjsydhcsjd",
-        "servicio": null,
-        "electronico": false,
-        "cobros": [
-            {
-                "forma_cobro": "CH",
-                "monto": "10000.0",
-                "fecha": "01/07/2013",
-                "numero_tarjeta": null,
-                "numero_cheque": "201307000001",
-                "tipo_ping": null
-            }
-        ],
-        "detalles": [
-            {
-                "porcentaje_iva": 12,
-                "cantidad": "500.0",
-                "base_no_gravable": "0.0",
-                "precio": "20.0",
-                "porcentaje_descuento": "0.0",
-                "descripcion": null,
-                "producto_id": "MRYWb4kJoHz0aZ1m",
-                "base_cero": "0.0",
-                "base_gravable": "10000.0"
-            }
-        ],
-        "fecha_emision": "10/06/2013",
-        "documento": "221-321-321321321",
-        "adicional2": "",
-        "adicional1": "",
-        "estado": "P",
-        "tipo_documento": "FAC",
-        "autorizacion": "5454654546",
-        "id_caja": "",
-        "subtotal_12": "10000.0",
-        "cliente": {
-            "tipo": "J",
-            "telefonos": "2745486",
-            "ruc": "0990004196001",
-            "razon_social": "CORPORACION EL ROSADO S.A.",
-            "direccion": "GUAYAS / GUAYAQUIL / AV. 9 DE OCTUBRE 729 Y BOYACA - GARCIA AVILES",
-            "es_extranjero": false,
-            "porcentaje_descuento": null,
-            "es_cliente": false,
-            "id": null,
-            "es_empleado": false,
-            "email": "agomez@contifico.com",
-            "cedula": "",
-            "es_vendedor": false
+{
+    "iva": "1200.0",
+    "fecha_vencimiento": "10/06/2013",
+    "vendedor": null,
+    "pos": "",
+    "subtotal_0": "0.0",
+    "descripcion": "prueba",
+    "total": "11200.0",
+    "id": "usdjcbjsydhcsjd",
+    "servicio": null,
+    "electronico": false,
+    "cobros": [
+        {
+            "forma_cobro": "CH",
+            "monto": "10000.0",
+            "fecha": "01/07/2013",
+            "numero_tarjeta": null,
+            "numero_cheque": "201307000001",
+            "tipo_ping": null
         }
-    },
-    ...
-]
+    ],
+    "detalles": [
+        {
+            "porcentaje_iva": 12,
+            "cantidad": "500.0",
+            "base_no_gravable": "0.0",
+            "precio": "20.0",
+            "porcentaje_descuento": "0.0",
+            "descripcion": null,
+            "producto_id": "MRYWb4kJoHz0aZ1m",
+            "base_cero": "0.0",
+            "base_gravable": "10000.0"
+        }
+    ],
+    "fecha_emision": "10/06/2013",
+    "documento": "221-321-321321321",
+    "adicional2": "",
+    "adicional1": "",
+    "estado": "P",
+    "tipo_documento": "FAC",
+    "autorizacion": "5454654546",
+    "id_caja": "",
+    "subtotal_12": "10000.0",
+    "cliente": {
+        "tipo": "J",
+        "telefonos": "2745486",
+        "ruc": "0990004196001",
+        "razon_social": "CORPORACION EL ROSADO S.A.",
+        "direccion": "GUAYAS / GUAYAQUIL / AV. 9 DE OCTUBRE 729 Y BOYACA - GARCIA AVILES",
+        "es_extranjero": false,
+        "porcentaje_descuento": null,
+        "es_cliente": false,
+        "id": null,
+        "es_empleado": false,
+        "email": "agomez@contifico.com",
+        "cedula": "",
+        "es_vendedor": false
+    }
+}
 ```
 
 ### HTTP Request
 
-`GET https://contifico.com/api/v1/caja/<ID>`
+`GET https://contifico.com/api/v1/documento/<ID>`
 
 Devuelve un documento con el `<ID>` solicitado.
 
@@ -304,10 +301,10 @@ Este servicio permite agregar un nuevo documento a Contifico.
 
 Contenido | Representacion |
 --------- | -------------- |
-"cliente": { .. } | El cliente que esta asignado al documento. Si no existe, lo crea. |
-"vendedor": { .. } | El vendedor que esta asignado al documento. Si no existe, lo crea. |
+"cliente": { .. } | El cliente que esta asignado al documento. Si no existe por ruc/cedula, lo crea. |
+"vendedor": { .. } | El vendedor que esta asignado al documento. Si no existe por ruc/cedula, lo crea. |
 "detalles": [{ .. }] | Contiene los detalles del documento, bien/servicio agregados al documento.  |
-"cobros": [{ .. }] | Contiene los cobros realizados en el documento.  |
+"cobros": [{ .. }] | Contiene los cobros realizados en el documento. Se crean los cobros |
 
 # Producto
 
