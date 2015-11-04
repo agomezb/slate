@@ -47,10 +47,10 @@ Las siguientes son url's válidas para uso del api:
 
 SERVICIO | URL | METODOS
 ------ | --- | -------
-Caja | https://contifico.com/api/v1/caja/ | `GET`, `POST` |
-Categoria | https://contifico.com/api/v1/categoria/ | `GET` |
-Producto | https://contifico.com/api/v1/producto/ | `GET`, `POST` |
-Documento | https://contifico.com/api/v1/documento/ | `GET`, `POST` |
+Caja | https://contifico.com/sistema/api/v1/caja/ | `GET`, `POST` |
+Categoria | https://contifico.com/sistema/api/v1/categoria/ | `GET` |
+Producto | https://contifico.com/sistema/api/v1/producto/ | `GET`, `POST` |
+Documento | https://contifico.com/sistema/api/v1/documento/ | `GET`, `POST` |
 
 
 #Caja
@@ -79,13 +79,13 @@ Documento | https://contifico.com/api/v1/documento/ | `GET`, `POST` |
 
 ### HTTP Request
 
-`GET https://contifico.com/api/v1/caja/`
+`GET https://contifico.com/sistema/api/v1/caja/`
 
 Devuelve un listado con todas las cajas creadas en el sistema
 
 ### HTTP Request
 
-`GET https://contifico.com/api/v1/caja/<ID>`
+`GET https://contifico.com/sistema/api/v1/caja/<ID>`
 
 Devuelve una caja con el `<ID>` solicitado.
 
@@ -99,7 +99,7 @@ Este servicio permite agregar una nueva Caja a Contifico. La Caja es utilizada p
 
 ### HTTP Request
 
-`POST https://contifico.com/api/v1/caja/`
+`POST https://contifico.com/sistema/api/v1/caja/`
 
 ```json
 {
@@ -204,7 +204,7 @@ La caja no es obligatoria para sincronizar documentos pero facilita el filtrado 
 
 ### HTTP Request
 
-`GET https://contifico.com/api/v1/documento/<ID>`
+`GET https://contifico.com/sistema/api/v1/documento/<ID>`
 
 Devuelve un documento con el `<ID>` solicitado.
 
@@ -295,7 +295,7 @@ Este servicio permite agregar un nuevo documento a Contifico.
 
 ### HTTP Request
 
-`POST https://contifico.com/api/documento/`
+`POST https://contifico.com/sistema/api/documento/`
 
 ### Query Parameters
 
@@ -335,13 +335,13 @@ Contenido | Representacion |
 ```
 ### HTTP Request
 
-`GET https://contifico.com/api/v1/producto/`
+`GET https://contifico.com/sistema/api/v1/producto/`
 
 Devuelve un listado con todos los productos creados en el sistema
 
 ### HTTP Request
 
-`GET https://contifico.com/api/v1/producto/<ID>`
+`GET https://contifico.com/sistema/api/v1/producto/<ID>`
 
 Devuelve un producto con el `<ID>` solicitado.
 
