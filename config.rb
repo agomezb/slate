@@ -27,6 +27,7 @@ end
 # Github pages require relative links
 activate :relative_assets
 set :relative_links, true
+#activate :livereload
 
 # Build Configuration
 configure :build do
