@@ -49,8 +49,8 @@ SERVICIO | URL | METODOS
 ------ | --- | -------
 Caja | https://contifico.com/sistema/api/v1/caja/ | `GET`, `POST` |
 Categoria | https://contifico.com/sistema/api/v1/categoria/ | `GET` |
-Producto | https://contifico.com/sistema/api/v1/producto/ | `GET`, `POST` |
 Documento | https://contifico.com/sistema/api/v1/documento/ | `GET`, `POST` |
+Producto | https://contifico.com/sistema/api/v1/producto/ | `GET`, `POST` |
 
 
 #Caja
@@ -134,6 +134,52 @@ codigo | char | 4 | Código de la caja
 <aside class="info">
 La caja no es obligatoria para sincronizar documentos pero facilita el filtrado de información.
 </aside>
+
+#Categoria
+
+## Consultar
+> A continuacion la respuesta al consultar categorias
+
+```json
+[
+    {
+        "padre_id": P0023xkBKULMe5GB,
+        "nombre": "FIESTA EUROPA",
+        "id": "7DkPb3333kWd5Y9L",
+        "agrupar": false
+    },
+    {
+        "padre_id": P0023xkBKULMe5GB,
+        "nombre": "FIESTA CASUAL",
+        "id": "8J0ye266I1neER7O",
+        "agrupar": false
+    },
+    {
+        "padre_id": null,
+        "nombre": "FIESTA AMAZON",
+        "id": "PxBleXJwu0000NOR",
+        "agrupar": true
+    },
+    ...
+]
+```
+
+### HTTP Request
+
+`GET https://contifico.com/sistema/api/v1/categoria/`
+
+Devuelve un listado con todas las categorias creadas en el sistema
+
+### HTTP Request
+
+`GET https://contifico.com/sistema/api/v1/categoria/<ID>`
+
+Devuelve una categoria con el `<ID>` solicitado.
+
+Parámetro | Tipo | Longitud | Descripción |
+--------- | ---- | -------- | ----------- |
+id | varchar | 16 | Identificador de la categoria en el sistema
+
 
 # Documento
 
